@@ -11,7 +11,8 @@ get '/users/new' do
 end
 
 get '/users/:id' do
-  "You're logged"
+  @decks = Deck.where(user_id: params[:id])
+  erb :logged_in_user
 end
 
 post '/login' do
