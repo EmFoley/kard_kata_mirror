@@ -16,7 +16,7 @@ rounds:
 - deck_id
 
 guesses:
-- round_od
+- round_id
 - outcome
 - card_id
 
