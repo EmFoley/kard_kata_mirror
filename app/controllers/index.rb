@@ -1,6 +1,8 @@
 enable :sessions
 
 get '/' do
+  @valid_pw = session[:message]
+  session[:message] = ''
   erb :index
 end
 
@@ -17,6 +19,9 @@ post '/login' do
   if params[:password] == user.password
     session[:logged_in] = true
     redirect "/users/#{user.id}"
+  else
+    session[:message] = "Invalid Password"
+    redirect "/"
   end
 end
 
@@ -25,9 +30,5 @@ post '/users/new' do
   if new_user.valid?
     new_user.save
     redirect "/users/#{new_user.id}"
-  else
-    "That username is taken!"
   end
-
-
 end

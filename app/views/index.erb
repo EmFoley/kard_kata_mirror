@@ -3,6 +3,7 @@
     <p>Username</p><input type="text" name="username">
     <p>Password</p><input type="text" name="password">
     <input type="submit" value="Login!">
+    <p><%= @valid_pw %></p>
   </form>
   <form action="/users/new" method="get">
     <input type="submit" value="Create User">
