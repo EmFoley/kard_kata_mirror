@@ -1,3 +1,6 @@
 class User < ActiveRecord::Base
-  # Remember to create a migration!
+  has_many :decks
+  validates :username, uniqueness: true
+  validates :username, presence: true
+  validates :password, presence: true
 end

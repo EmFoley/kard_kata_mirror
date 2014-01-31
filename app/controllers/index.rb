@@ -3,6 +3,22 @@ get '/' do
   erb :index
 end
 
-get '/info' do
-  Demo.new(self).info
+get '/users/new' do
+  erb :new_user
+end
+
+get '/users/:id' do
+
+end
+
+post '/users/new' do
+  new_user = User.new(params)
+  if new_user.valid?
+    new_user.save
+    redirect "/users/#{new_user.id}"
+  else
+    "That username is taken!"
+  end
+
+
 end
