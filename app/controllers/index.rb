@@ -1,5 +1,6 @@
+enable :sessions
+
 get '/' do
-  # Look in app/views/index.erb
   erb :index
 end
 
@@ -8,7 +9,15 @@ get '/users/new' do
 end
 
 get '/users/:id' do
+  "You're logged"
+end
 
+post '/login' do
+  user = User.find_by_username(params[:username])
+  if params[:password] == user.password
+    session[:logged_in] = true
+    redirect "/users/#{user.id}"
+  end
 end
 
 post '/users/new' do
