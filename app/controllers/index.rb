@@ -11,8 +11,13 @@ get '/users/new' do
 end
 
 get '/users/:id' do
-  @decks = Deck.where(user_id: params[:id])
-  erb :logged_in_user
+  if session[:logged_in]
+    @decks = Deck.where(user_id: params[:id])
+    erb :logged_in_user
+  else
+    session[:message] = "You can't do that, you're not logged in!"
+    redirect '/'
+  end
 end
 
 post '/login' do
@@ -24,6 +29,11 @@ post '/login' do
     session[:message] = "Invalid Password"
     redirect "/"
   end
+end
+
+post '/logout' do
+  session[:logged_in] = false
+  redirect '/'
 end
 
 post '/users/new' do
