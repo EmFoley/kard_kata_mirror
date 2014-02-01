@@ -11,6 +11,7 @@ get '/users/new' do
 end
 
 get '/users/:id' do
+  session[:game_started] = nil
   if session[:logged_in]
     @decks = Deck.where(user_id: params[:id])
     erb :logged_in_user
@@ -36,24 +37,7 @@ post '/logout' do
   redirect '/'
 end
 
-get '/decks' do
-  @message = session[:answer_message]
-  session[:answer_message] = nil
-  @card = Card.where(deck_id: 1).sample
-  p @card
-  erb :game
-  # session[:answer_message] = ""
-end
 
-post '/cards/:card_id' do
-  card = Card.find(params[:card_id])
-  if params[:user_answer] == card.answer
-    session[:answer_message] = "Congratulations! That is correct"
-  else
-    session[:answer_message] = "Sorry, that was not correct :("
-  end
-  redirect "/decks"
-end
 # select a deck page -> array of card objects -> session[:cards_array]
 post '/users/new' do
   new_user = User.new(params)
@@ -63,3 +47,45 @@ post '/users/new' do
     redirect "/users/#{new_user.id}"
   end
 end
+
+get '/round' do
+  p session
+
+  unless session[:game_started]
+    cards = Card.where(deck_id: params[:deck_id]) 
+    session[:card_ids] = cards.map{ |card| card.id }
+  end
+
+  if session[:card_ids].empty?
+    redirect '/results'
+  end
+
+  session[:game_started] = true if session[:game_started].nil?
+  deck_id = params[:deck_id]
+  @current_card = Card.find(session[:card_ids].first)
+  @message = session[:answer_message]
+  erb :round
+end
+
+post '/round' do
+  guess = params[:user_answer]
+  if Card.find(session[:card_ids].first).answer == guess
+    session[:answer_message] = "Congratulations! That is correct."
+    session[:card_ids].shift
+  else
+    session[:answer_message] = "Sorry, that was not correct :("
+    session[:card_ids].rotate!
+  end
+  redirect '/round'
+end
+
+get '/results' do
+  erb :results
+end
+
+
+
+
+
+
+

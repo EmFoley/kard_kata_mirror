@@ -1,5 +1,5 @@
-<p>Question: <%= @card.question %></p>
-<form action="/cards/<%= @card.id %>", method="post">
+<p>Question: <%= @current_card.question %></p>
+<form action="/round", method="post">
   Answer: <input type="text" name="user_answer">
   <input type="submit" value="check answer">
 </form>
