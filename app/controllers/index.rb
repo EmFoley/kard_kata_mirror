@@ -40,6 +40,7 @@ post '/users/new' do
   new_user = User.new(params)
   if new_user.valid?
     new_user.save
+    session[:logged_in] = true
     redirect "/users/#{new_user.id}"
   end
 end
