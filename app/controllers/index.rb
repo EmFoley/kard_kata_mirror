@@ -1,8 +1,12 @@
 enable :sessions
 
+before do
+  @logged_in = session[:id] ? true : false
+end
+
 get '/' do
   @valid_pw = session[:message]
-  session[:message] = ''
+  session[:message] = nil
   erb :index
 end
 
@@ -11,7 +15,7 @@ get '/users/new' do
 end
 
 get '/users/:id' do
-  if session[:logged_in]
+  if @logged_in
     @decks = Deck.where(user_id: params[:id])
     erb :logged_in_user
   else
@@ -23,7 +27,7 @@ end
 post '/login' do
   user = User.find_by_username(params[:username])
   if params[:password] == user.password
-    session[:logged_in] = true
+    session[:id] = user.id
     redirect "/users/#{user.id}"
   else
     session[:message] = "Invalid Password"
@@ -32,7 +36,7 @@ post '/login' do
 end
 
 post '/logout' do
-  session[:logged_in] = false
+  session[:id] = nil
   redirect '/'
 end
 
@@ -40,7 +44,7 @@ post '/users/new' do
   new_user = User.new(params)
   if new_user.valid?
     new_user.save
-    session[:logged_in] = true
+    session[:id] = new_user.id
     redirect "/users/#{new_user.id}"
   end
 end

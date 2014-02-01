@@ -1,11 +1,11 @@
 <div class="container">
   <form action="/login" method="post">
     <p>Username</p><input type="text" name="username">
-    <p>Password</p><input type="text" name="password">
+    <p>Password</p><input type="password" name="password">
     <input type="submit" value="Login!">
     <p><%= @valid_pw %></p>
   </form>
   <form action="/users/new" method="get">
-    <input type="submit" value="Create User">
+    <input type="submit" value="Sign Up">
   </form>
 </div>
