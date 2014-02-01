@@ -1,0 +1,13 @@
+<div class="container">
+  <form action="/users/decks/:id" method="get">
+    <select name ="decks">
+      <% @decks.each do |deck| %>
+        <option value= <%= deck.name %>><%= deck.name %></option>
+      <% end %>
+    </select>
+    <input type="submit" value="Start game">
+  </form>
+  <form action="/logout" method="post">
+    <input type="submit" value="Logout">
+  </form>
+</div>
