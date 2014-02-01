@@ -1,6 +1,5 @@
 <div class="container">
-  <%= erb :'partials/user_credentials', locals => {:action=>@action, :btn => @btn} %>
-  <p><%= @valid_pw %></p>
+  <%= erb :'partials/user_credentials' %>
   <form action="/users/new" method="get">
     <input type="submit" value="Sign Up">
   </form>

@@ -1,8 +1,8 @@
 <div class="container">
-  <form action="/users/decks/:id" method="get">
+  <form action='/users/decks' method="post">
     <select name ="decks">
       <% @decks.each do |deck| %>
-        <option value= <%= deck.name %>><%= deck.name %></option>
+        <option value='<%= deck.id %>'><%= deck.name %></option>
       <% end %>
     </select>
     <input type="submit" value="Start game">
