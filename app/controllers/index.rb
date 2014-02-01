@@ -24,6 +24,8 @@ post '/login' do
   user = User.find_by_username(params[:username])
   if params[:password] == user.password
     session[:logged_in] = true
+    session[:user_id] = user.id # added by rick
+    session[:id] = user.id
     redirect "/users/#{user.id}"
   else
     session[:message] = "Invalid Password"
@@ -42,7 +44,6 @@ get '/decks' do
   @card = Card.where(deck_id: 1).sample
   p @card
   erb :game
-  # session[:answer_message] = ""
 end
 
 post '/cards/:card_id' do

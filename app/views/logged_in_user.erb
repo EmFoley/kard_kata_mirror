@@ -1,15 +1,16 @@
 <div class="container">
-  <form action="/decks" method="get">
+  <form action="/decks/" method="get">
     <select name ="deck_id">
-   <!--    <% @decks.each do |deck| %>
+      <% @decks.each do |deck| %>
         <option value= <%= deck.name %>><%= deck.name %></option>
-      <% end %> -->
-
-      <option value="1">1</option>
+      <% end %>
     </select>
     <input type="submit" value="Start game">
   </form>
   <form action="/logout" method="post">
     <input type="submit" value="Logout">
+  </form>
+  <form action="/decks" method="get">
+    <input type="submit" value="View All Decks">
   </form>
 </div>
