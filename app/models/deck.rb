@@ -1,16 +1,16 @@
 class Deck < ActiveRecord::Base
-  def initialize(params)
-    super
-    @deck = generate_deck
-    @deck.shuffle!
+  # def initialize(params)
+  #   super
+  #   @deck = generate_deck
+  #   @deck.shuffle!
+  # end
+
+  def generate_card_array
+    Cards.where(deck_id: self.id)
   end
 
-  def generate_deck(deck_id)
-    Cards.where(deck_id: deck_id)
-  end
-
-  def top_card
-    @deck.pop
+  def top_card(deck_array)
+    deck_array.pop
   end
 
   def card_count

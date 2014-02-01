@@ -1,3 +1,6 @@
 class Guess < ActiveRecord::Base
-  # Remember to create a migration!
+  def correct?(guess)
+    outcome = Card.where(:answer => guess)
+    outcome.empty? ? false : true
+  end
 end

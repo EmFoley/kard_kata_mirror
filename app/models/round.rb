@@ -1,3 +1,5 @@
 class Round < ActiveRecord::Base
-  # Remember to create a migration!
+  def is_finished?(deck)
+    deck.card_count.zero? ? true : false
+  end
 end
