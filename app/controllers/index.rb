@@ -6,11 +6,15 @@ end
 
 get '/' do
   @valid_pw = session[:message]
+  @action = "/login"
+  @btn = "Login!"
   session[:message] = nil
   erb :index
 end
 
 get '/users/new' do
+  @action = "/users/new"
+  @btn = "Create User"
   erb :new_user
 end
 
