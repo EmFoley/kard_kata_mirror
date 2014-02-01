@@ -10,8 +10,8 @@ get '/users/new' do
 end
 
 get '/users/:id' do
-  if @logged_in
-    @decks = Deck.where(user_id: params[:id])
+  if session[:id] == params[:id].to_i
+    @decks = Deck.where(user_id: session[:id])
     erb :logged_in_user
   else
     session[:message] = "You can't do that, you're not logged in!"

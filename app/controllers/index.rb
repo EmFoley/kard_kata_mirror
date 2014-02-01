@@ -5,6 +5,11 @@ get '/' do
   @action = "/login"
   @btn = "Login!"
   session[:message] = nil
-  erb :index
+
+  if session[:id] != nil
+    redirect "/users/#{session[:id]}"
+  else
+    erb :index
+  end
 end
 
