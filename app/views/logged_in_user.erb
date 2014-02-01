@@ -1,6 +1,6 @@
 <div class="container">
-  <form action='/users/decks' method="post">
-    <select name ="decks">
+  <form action="/round" method="get">
+    <select name ="deck_id">
       <% @decks.each do |deck| %>
         <option value='<%= deck.id %>'><%= deck.name %></option>
       <% end %>

@@ -1,0 +1,6 @@
+<p>Question: <%= @current_card.question %></p>
+<form action="/round", method="post">
+  Answer: <input type="text" name="user_answer">
+  <input type="submit" value="check answer">
+</form>
+<div><%= @message %></div>

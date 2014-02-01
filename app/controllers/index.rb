@@ -7,3 +7,4 @@ get '/' do
   session[:message] = nil
   erb :index
 end
+
