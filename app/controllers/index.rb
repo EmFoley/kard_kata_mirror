@@ -36,9 +36,10 @@ post '/logout' do
   redirect '/'
 end
 
-get '/decks/:deck_id' do
+get '/decks' do
   @message = session[:answer_message]
-  @card = Card.where(deck_id: params[:deck_id]).sample
+  session[:answer_message] = nil
+  @card = Card.where(deck_id: 1).sample
   p @card
   erb :game
   # session[:answer_message] = ""
@@ -51,7 +52,7 @@ post '/cards/:card_id' do
   else
     session[:answer_message] = "Sorry, that was not correct :("
   end
-  redirect "/decks/#{card.deck_id}"
+  redirect "/decks"
 end
 # select a deck page -> array of card objects -> session[:cards_array]
 post '/users/new' do
