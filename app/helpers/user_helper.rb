@@ -1,7 +1,7 @@
 helpers do
   def check_password(user)
     begin
-      if params[:password] == user.password
+      if user.password == params[:password]
         session[:id] = user.id
         redirect "/users/#{user.id}"
       end

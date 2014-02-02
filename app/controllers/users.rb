@@ -32,6 +32,7 @@ end
 
 post '/login' do
   user = User.find_by_username(params[:username])
+  p user
   check_password(user)
 end
 

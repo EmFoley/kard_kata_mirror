@@ -11,6 +11,17 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   # validate :user_passwords_match
 
+  include BCrypt
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
+
   def stats
     {times_played: times_played_each_deck, last_played: last_played_each_deck, high_score: high_score_each_deck}
   end
