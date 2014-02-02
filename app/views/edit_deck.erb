@@ -1,8 +1,22 @@
-<p>(Edit Mode) Deck Name: <%= @deck.name %></p>
+Deck Name: <%= @deck.name %>
+<form class="update-deck-form" method="post" action="/decks/<%= @deck.id %>">
+  <input type="hidden" name="_method" value="put">
+  <input class="update-deck-name" type="submit" value="Update Deck Name">
+  <input type="text" name="name">
+</form>
+
 <p> Num of Cards in Deck: <%= @cards.count %></p>
 <% @cards.each_with_index do |card, idx| %>
   <div class="card">
-    <p>Q<%= idx + 1 %>: <%= card.question %></p>
-    </p>A:<%= card.answer %></p>
+    <p class="question">Q<%= idx + 1 %>: <%= card.question %></p>
+    <p class="answer">A:<%= card.answer %></p>
+    <form class="edit-card-form" method="#" action="#">
+      <input class="edit-card-button" type="submit" value="Edit Card">
+    </form>
+    <form class="delete-card-form" method="post" action="/cards/<%= card.id %>">
+      <input type ="hidden" name="_method" value="delete">
+      <input type="hidden" name="deck_id" value="<%= @deck.id %>">
+      <input class="delete-card-button" type="submit" value="Delete Card">
+    </form>
   </div>
 <% end %>
