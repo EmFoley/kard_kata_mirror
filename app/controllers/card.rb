@@ -1,21 +1,24 @@
 # delete a specific card
-delete '/cards/:id' do
-  Card.destroy(params[:id])
-  redirect "/decks/#{params[:deck_id]}/edit"
+delete '/users/:id/decks/:deck_id/cards/:card_id' do
+  Card.destroy(params[:card_id])
+  redirect "/users/#{session[:id]}/decks/#{params[:deck_id]}/edit"
 end
 
 # create a new card
-post '/cards' do
-  Card.create(params)
-  redirect "/decks/#{params[:deck_id]}/edit"
+post '/users/:id/decks/:deck_id/cards' do
+  Card.create(
+    question: params[:question],
+    answer: params[:answer],
+    deck_id: params[:deck_id])
+  redirect "users/#{session[:id]}/decks/#{params[:deck_id]}/edit"
 end
 
 # edit a specific card
-put '/cards/:id' do
-  card = Card.find(params[:id])
+put '/users/:id/decks/:deck_id/cards/:card_id' do
+  card = Card.find(params[:card_id])
   card.update_attributes(
     deck_id: params[:deck_id],
     question: params[:question],
     answer: params[:answer])
-  redirect "/decks/#{params[:deck_id]}/edit"
+  redirect "users/#{session[:id]}/decks/#{params[:deck_id]}/edit"
 end
