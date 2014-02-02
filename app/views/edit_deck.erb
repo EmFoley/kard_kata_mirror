@@ -1,0 +1,37 @@
+<nav>
+  <a href="/decks">&#9668; Go back to all your decks</a>
+</nav>
+Deck Name: <%= @deck.name %>
+<form class="update-deck-form" method="post" action="/decks/<%= @deck.id %>">
+  <input type="hidden" name="_method" value="put">
+  <input class="update-deck-name" type="submit" value="Update Deck Name">
+  <input type="text" name="name">
+</form>
+<p> Num of Cards in Deck: <%= @cards.count %></p>
+<form class="create-card-form" method="post" action="/cards">
+  <p>Create a new card:</p>
+  Q: <input type="text" name="question">
+  A: <input type="text" name="answer">
+  <input type="hidden" name="deck_id" value="<%= @deck.id %>">
+  <input class="create-card-button" type="submit" value="Add a new card">
+</form>
+<% @cards.each_with_index do |card, idx| %>
+  <div class="card">
+    <p class="question">Q<%= idx + 1 %>: <%= card.question %></p>
+    <p class="answer">A:<%= card.answer %></p>
+
+    <form class="edit-card-form" method="post" action="/cards/<%= card.id %>">
+      <input type="hidden" name="_method" value="put">
+      <input type="hidden" name="deck_id" value="<%= @deck.id %>">
+      <input type="text" name="question">
+      <input type="text" name="answer">
+      <input class="edit-card-button" type="submit" value="Edit Card">
+    </form>
+
+    <form class="delete-card-form" method="post" action="/cards/<%= card.id %>">
+      <input type ="hidden" name="_method" value="delete">
+      <input type="hidden" name="deck_id" value="<%= @deck.id %>">
+      <input class="delete-card-button" type="submit" value="Delete Card">
+    </form>
+  </div>
+<% end %>

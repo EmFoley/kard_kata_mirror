@@ -1,0 +1,18 @@
+<form class="add-deck-form" method="post" action="/decks">
+  <p>(You have <%= @decks.count %> decks)</p>
+  <p>Add a New Deck:</p>
+  <input type="text" name="name">
+  <input class="add-deck-button" type="submit" value="Create Deck!">
+</form>
+Here Are All Your Decks:
+<% @decks.sort {|a, b| a.name.downcase.slice(0) <=> b.name.downcase.slice(0)}.each do |deck| %>
+<div class="deck">
+  <%= deck.name %>
+  <button class="view-deck-button" type="button"><a href="/decks/<%= deck.id %>">View</a></button>
+  <button class="edit-deck-button"><a href="/decks/<%= deck.id %>/edit">Edit</a></button>
+  <form class="deck-delete-form" method="post" action="/decks/<%= deck.id %>">
+    <input type="hidden" name="_method" value="delete">
+    <input class="delete-deck-button" type="submit" value="Delete">
+  </form>
+</div>
+<% end %>
