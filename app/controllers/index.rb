@@ -1,66 +1,9 @@
 enable :sessions
 
 get '/' do
-  @valid_pw = session[:message]
-  session[:message] = ''
+  @msg = session[:message]
+  @action = "/login"
+  @btn = "Login!"
+  session[:message] = nil
   erb :index
-end
-
-get '/users/new' do
-  erb :new_user
-end
-
-get '/users/:id' do
-  if session[:logged_in]
-    @decks = Deck.where(user_id: params[:id])
-    erb :logged_in_user
-  else
-    session[:message] = "You can't do that, you're not logged in!"
-    redirect '/'
-  end
-end
-
-post '/login' do
-  user = User.find_by_username(params[:username])
-  if params[:password] == user.password
-    session[:logged_in] = true
-    session[:user_id] = user.id # added by rick
-    session[:id] = user.id
-    redirect "/users/#{user.id}"
-  else
-    session[:message] = "Invalid Password"
-    redirect "/"
-  end
-end
-
-post '/logout' do
-  session[:logged_in] = false
-  redirect '/'
-end
-
-get '/decks' do
-  @message = session[:answer_message]
-  session[:answer_message] = nil
-  @card = Card.where(deck_id: 1).sample
-  p @card
-  erb :game
-end
-
-post '/cards/:card_id' do
-  card = Card.find(params[:card_id])
-  if params[:user_answer] == card.answer
-    session[:answer_message] = "Congratulations! That is correct"
-  else
-    session[:answer_message] = "Sorry, that was not correct :("
-  end
-  redirect "/decks"
-end
-# select a deck page -> array of card objects -> session[:cards_array]
-post '/users/new' do
-  new_user = User.new(params)
-  if new_user.valid?
-    new_user.save
-    session[:logged_in] = true
-    redirect "/users/#{new_user.id}"
-  end
 end

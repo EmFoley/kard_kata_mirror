@@ -23,6 +23,10 @@ group :test do
   gem 'rack-test'
 end
 
+group :development do
+  gem 'pry'
+end
+
 group :test, :development do
   gem 'rspec'
   gem 'factory_girl'

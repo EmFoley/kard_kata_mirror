@@ -1,5 +1,5 @@
 <div class="container">
-  <form action="/decks/" method="get">
+  <form action="/round" method="get">
     <select name ="deck_id">
       <% @decks.each do |deck| %>
         <option value= <%= deck.name %>><%= deck.name %></option>
@@ -7,10 +7,13 @@
     </select>
     <input type="submit" value="Start game">
   </form>
+
   <form action="/logout" method="post">
     <input type="submit" value="Logout">
   </form>
+
   <form action="/decks" method="get">
     <input type="submit" value="View All Decks">
   </form>
+  <a href="/users/<%= @user_id %>/stats">See stats</a>
 </div>

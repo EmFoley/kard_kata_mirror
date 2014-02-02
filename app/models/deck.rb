@@ -1,19 +1,8 @@
 class Deck < ActiveRecord::Base
-  # def initialize(params)
-  #   super
-  #   @deck = generate_deck
-  #   @deck.shuffle!
-  # end
-
-  def generate_card_array
-    Cards.where(deck_id: self.id)
-  end
-
-  def top_card(deck_array)
-    deck_array.pop
-  end
-
-  def card_count
-    @deck.count
-  end
+  belongs_to :user
+  has_many :cards
+  has_many :rounds
+  validates :name, presence: true
+  validates :user_id, presence: true
+  validates :name, uniqueness: {scope: :user_id}
 end

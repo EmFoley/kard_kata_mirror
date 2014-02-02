@@ -1,12 +1,12 @@
 # Display a list of all Decks
 get '/decks' do
-  @decks = Deck.where(user_id: session[:user_id])
+  @decks = Deck.where(user_id: session[:id])
   erb :list_decks
 end
 
 # Create a new Deck
 post '/decks' do
-  Deck.create(name: params[:name], user_id: session[:user_id])
+  Deck.create(name: params[:name], user_id: session[:id])
   redirect '/decks'
 end
 
