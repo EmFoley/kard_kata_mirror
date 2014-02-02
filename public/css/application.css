@@ -11,6 +11,11 @@ body {
   background-image:url('img/wood-fence-texture-03.jpg');
 }
 
+#biergarten {
+  background-image:url('img/biergarten.jpg');
+  background-size: 100%;
+}
+
 .container {
   margin: 20px auto;
   width: 800px;
@@ -18,7 +23,7 @@ body {
   padding: 0px 20px 20px 20px;
   border: 30px solid #B80000;
   border-style:groove;
-  background-image:url('img/biergarten.jpg');
+  background-image:url('img/Why-Beer-Is-Good-For-You.jpg');
   background-size: 100%;
 }
 
@@ -38,15 +43,21 @@ body {
   margin-top: 10px;
 }
 
+.stat_button {
+  margin-left: 30px;
+}
+
 #logout {
   margin-top: 150px;
   margin-left: 30px;
+  margin-bottom: 10px;
 }
 
 form {
   font-size: 24px;
   text-align: left;
 }
+
 
 .german h1 {
   font-size: 80px;
@@ -97,6 +108,11 @@ th {
 
 #definition {
   font-size: 40px;
+}
+
+table {
+  margin-bottom: 15px;
+  font-size: 20px;
 }
 
 

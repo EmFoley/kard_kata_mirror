@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="biergarten">
   <form id="start_game" action="/round" method="get">
     <select name ="deck_id">
       <% @decks.each do |deck| %>
@@ -10,4 +10,5 @@
   <form id="logout" action="/logout" method="post">
     <input type="submit" value="Logout" id="submit">
   </form>
+  <a href="/users/<%= @user_id %>/stats" id="submit" class="stat_button">See stats</a>
 </div>

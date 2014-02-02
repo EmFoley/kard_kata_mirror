@@ -12,12 +12,23 @@ end
 get '/users/:id' do
   session[:game_started] = nil
   if session[:id] == params[:id].to_i
+    @user_id = session[:id]
     @decks = Deck.where(user_id: session[:id])
     erb :logged_in_user
   else
     session[:message] = "You can't do that, you're not logged in!"
     redirect '/'
   end
+end
+
+get '/users/:id/stats' do
+  user = User.find(params[:id])
+  @times_played = user.stats[:times_played]
+  @high_score = user.stats[:high_score]
+  @last_played = user.stats[:last_played]
+  @decks = user.decks
+  p @high_score
+  erb :user_stats
 end
 
 post '/login' do

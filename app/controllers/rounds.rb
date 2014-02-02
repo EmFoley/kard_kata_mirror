@@ -29,4 +29,3 @@ post '/round' do
   guess = Guess.create!(round_id: session[:round_id], outcome: outcome, card_id: current_card.id)
   redirect '/round/result'
 end
-

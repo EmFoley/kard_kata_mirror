@@ -1,11 +1,13 @@
 helpers do
   def check_password(user)
-    if params[:password] == user.password
-      session[:id] = user.id
-      redirect "/users/#{user.id}"
-    else
-      session[:message] = "Invalid Password"
-      redirect "/"
+    begin
+      if params[:password] == user.password
+        session[:id] = user.id
+        redirect "/users/#{user.id}"
+      end
+    rescue
+      session[:message] = "Invalid Username or Password"
+      redirect '/'
     end
   end
 
