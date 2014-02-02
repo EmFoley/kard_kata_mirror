@@ -1,33 +1,31 @@
 get '/round' do
-
   initialize_round unless session[:game_started]
-
-  redirect '/results' if session[:card_ids].empty?
-
   session[:game_started] = true if session[:game_started].nil?
-  deck_id = params[:deck_id]
+  redirect '/round/score' if session[:card_ids].empty?
   @current_card = Card.find(session[:card_ids].first)
-  @message = session[:answer_message]
   erb :round
 end
 
-post '/round' do
+get '/round/result' do
+  @message = session[:answer_message]
+  erb :guess_result
+end
 
-  current_card = Card.find(session[:card_ids].first)
+get '/round/score' do
+  @user_score = Round.find(session[:round_id]).score
+  erb :user_score
+end
+
+post '/round' do
+  current_card = Card.find(session[:card_ids].shift)
   if current_card.answer == params[:user_answer]
     outcome = 1
     session[:answer_message] = "Congratulations! That is correct."
-    session[:card_ids].shift
   else
     outcome = 0
-    session[:answer_message] = "Sorry, that was not correct :("
-    session[:card_ids].rotate!
+    session[:answer_message] = "Sorry, that was not correct :( \n The correct answer is: #{current_card.answer}."
   end
   guess = Guess.create!(round_id: session[:round_id], outcome: outcome, card_id: current_card.id)
-  p guess
-  redirect '/round'
+  redirect '/round/result'
 end
 
-get '/results' do
-  erb :results
-end

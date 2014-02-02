@@ -8,4 +8,10 @@ class Round < ActiveRecord::Base
   def is_finished?(deck)
     deck.card_count.zero? ? true : false
   end
+
+  def score
+    correct = self.guesses.where(outcome: 1).length
+    incorrect = self.guesses.where(outcome: 0).length
+    {correct: correct, incorrect: incorrect}
+  end
 end
