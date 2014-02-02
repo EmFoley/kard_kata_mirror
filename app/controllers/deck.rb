@@ -4,6 +4,12 @@ get '/decks' do
   erb :list_decks
 end
 
+# Create a new Deck
+post '/decks' do
+  Deck.create(name: params[:name], user_id: session[:user_id])
+  redirect '/decks'
+end
+
 # Display contents of a specific Deck
 get '/decks/:id' do
   @deck = Deck.find(params[:id])

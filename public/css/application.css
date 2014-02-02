@@ -19,6 +19,14 @@ th {
   max-width: 600px;
   border: 2px solid silver;
   margin: 10px;
+  overflow: auto;
+}
+
+.add-deck-form {
+  max-width: 600px;
+  border: 2px solid silver;
+  margin: 10px;
+  padding: 5px;
 }
 
 .deck-delete-form, .deck-edit-form {
@@ -39,6 +47,10 @@ th {
 
 .update-deck-name, .view-deck-button {
   background: rgba(76, 247, 67, 0.75);
+}
+
+.delete-deck-button, .view-deck-button, .edit-deck-button {
+  float: right;
 }
 
 nav a {

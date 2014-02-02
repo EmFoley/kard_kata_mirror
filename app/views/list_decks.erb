@@ -1,5 +1,10 @@
+<form class="add-deck-form" method="post" action="/decks">
+  <p>(You have <%= @decks.count %> decks)</p>
+  <p>Add a New Deck:</p>
+  <input type="text" name="name">
+  <input class="add-deck-button" type="submit" value="Create Deck!">
+</form>
 Here Are All Your Decks:
-<p>(You have <%= @decks.count %> decks)</p>
 <% @decks.each do |deck| %>
 <div class="deck">
   <%= deck.name %>
