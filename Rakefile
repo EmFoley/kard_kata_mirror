@@ -1,6 +1,13 @@
 require 'rake'
 require 'rspec/core/rake_task'
 
+# Rakefile
+APP_FILE  = 'app.rb'
+APP_CLASS = 'App'
+
+
+require 'sinatra/assetpack/rake'
+
 
 require ::File.expand_path('../config/environment', __FILE__)
 

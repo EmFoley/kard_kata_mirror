@@ -19,6 +19,8 @@ gem 'rake'
 gem 'shotgun'
 gem 'bcrypt-ruby'
 gem 'rspec'
+gem 'factory_girl'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
