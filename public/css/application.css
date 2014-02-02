@@ -9,14 +9,60 @@ th {
   text-align: left;
 }
 
-.button {
-  display: block;
-  width: 115px;
-  height: 25px;
-  background: lightgrey;
-  padding: 13px 10px 10px 10px;
-  text-align: center;
-  border-radius: 5px;
-  color: black;
-  text-decoration: none;
+/*Pertaining to CRUD related pages for Decks*/
+.card {
+  border: 2px solid silver;
+  margin: 10px;
+}
+
+.create-card-form {
+  border: 2px solid silver;
+  margin: 10px;
+  padding: 5px;
+}
+
+.deck {
+  max-width: 600px;
+  border: 2px solid silver;
+  margin: 10px;
+  overflow: auto;
+}
+
+.add-deck-form {
+  max-width: 600px;
+  border: 2px solid silver;
+  margin: 10px;
+  padding: 5px;
+}
+
+.deck-delete-form, .deck-edit-form {
+  display: inline;
+}
+
+.edit-card-form, .delete-card-form {
+  display: inline;
+}
+
+.edit-card-button, .edit-deck-button {
+  background: rgba(248, 255, 59, 0.75);
+}
+
+.delete-card-button, .delete-deck-button {
+  background: rgba(227, 43, 43, 0.90);
+}
+
+.update-deck-name, .view-deck-button, .create-card-button {
+  background: rgba(76, 247, 67, 0.75);
+}
+
+.delete-deck-button, .view-deck-button, .edit-deck-button {
+  float: right;
+}
+
+nav a {
+color: blue;
+}
+
+nav a:hover {
+  background: rgba(76, 247, 67, 0.75);
 }
