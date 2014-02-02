@@ -1,5 +1,6 @@
 class Round < ActiveRecord::Base
   belongs_to :user
+  belongs_to :deck
   has_many :guesses
 
   validates :user_id, presence: true
@@ -10,8 +11,8 @@ class Round < ActiveRecord::Base
   end
 
   def score
-    correct = self.guesses.where(outcome: 1).length
-    incorrect = self.guesses.where(outcome: 0).length
-    {correct: correct, incorrect: incorrect}
+    num_correct = self.guesses.where(outcome: 1).length
+    num_incorrect = self.guesses.where(outcome: 0).length
+    {correct: num_correct, incorrect: num_incorrect}
   end
 end
