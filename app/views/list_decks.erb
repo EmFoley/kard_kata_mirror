@@ -1,3 +1,6 @@
+<nav>
+  <a href="/users/<%= session[:id] %>">&#9668; Go back to your dashboard</a>
+</nav>
 <form class="add-deck-form" method="post" action="/decks">
   <p>(You have <%= @decks.count %> decks)</p>
   <p>Add a New Deck:</p>
