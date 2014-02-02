@@ -1,23 +1,25 @@
-<nav>
+<nav class="german">
   <a href="/users/<%= session[:id] %>/decks">&#9668; Go back to all your decks</a>
 </nav>
-Deck Name: <%= @deck.name %>
+<p class="floating german">Deck Name: <%= @deck.name %></p>
 <form class="update-deck-form" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>">
   <input type="hidden" name="_method" value="put">
-  <input class="update-deck-name" type="submit" value="Update Deck Name">
+  <input class="update-deck-name" type="submit" value="Update Deck Name" id="submit">
   <input type="text" name="name">
 </form>
-<p> Num of Cards in Deck: <%= @cards.count %></p>
-<form class="create-card-form" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>/cards">
+<p class= "floating german"> Num of Cards in Deck: <%= @cards.count %></p>
+<div class="create-new-card">
+<form class="create-card-form german" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>/cards">
   <p>Create a new card:</p>
   Q: <input type="text" name="question">
   A: <input type="text" name="answer">
   <input type="hidden" name="deck_id" value="<%= @deck.id %>">
-  <input class="create-card-button" type="submit" value="Add a new card">
+  <input class="create-card-button" type="submit" value="Add a new card" id="submit">
 </form>
+</div>
 <% @cards.each_with_index do |card, idx| %>
   <div class="card">
-    <form class="edit-card-form" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>/cards/<%= card.id %>">
+    <form class="edit-card-form german" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>/cards/<%= card.id %>">
       <input type="hidden" name="_method" value="put">
       <input type="hidden" name="deck_id" value="<%= @deck.id %>">
       <p class="question">Q<%= idx + 1 %>: <%= card.question %></p>
@@ -25,13 +27,13 @@ Deck Name: <%= @deck.name %>
       <p class="answer">A:<%= card.answer %></p>
       A: <input type="text" name="answer">
       <br><br>
-      <input class="edit-card-button" type="submit" value="Update Card">
+      <input class="edit-card-button" type="submit" value="Update Card" id="submit">
     </form>
 
     <form class="delete-card-form" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>/cards/<%= card.id %>">
       <input type ="hidden" name="_method" value="delete">
       <input type="hidden" name="deck_id" value="<%= @deck.id %>">
-      <input class="delete-card-button" type="submit" value="Delete Card">
+      <input class="delete-card-button" type="submit" value="Delete Card" id="submit">
     </form>
   </div>
 <% end %>

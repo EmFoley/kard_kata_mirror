@@ -42,8 +42,8 @@ class User < ActiveRecord::Base
       else
         result[deck.id] = deck.rounds.map{ |round| round.score[:correct] }.max
       end
-      p "FLAG"
-      p deck.rounds.first.score
+      # p "FLAG"
+      # p deck.rounds.first.score
     end
     result
   end

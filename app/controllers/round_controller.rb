@@ -1,6 +1,8 @@
 get '/round' do
-  initialize_round unless session[:game_started]
-  session[:game_started] = true if session[:game_started].nil?
+  if session[:game_started] == false
+    initialize_round
+    session[:game_started] = true
+  end
   redirect '/round/score' if session[:card_ids].empty?
   @current_card = Card.find(session[:card_ids].first)
   erb :round
