@@ -26,7 +26,7 @@ post '/round' do
     session[:answer_message] = "Sorry, that was not correct :("
     session[:card_ids].rotate!
   end
-  Guess.create(round_id: params[:round_id], outcome: outcome, card_id:
+  # Guess.create(round_id: params[:round_id], outcome: outcome, card_id:)
   redirect '/round'
 end
 

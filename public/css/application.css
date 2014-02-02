@@ -1,9 +1,45 @@
+@font-face {
+  font-family: AlteSchwabacher;
+  src: url('img/dieter-steffmann_alte-schwabacher/AlteSchwabacher.ttf');
+}
+
+body {
+  background-image:url('img/wood-fence-texture-03.jpg');
+}
+
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 30px solid #B80000;
+  border-style:groove;
+/*  background-color: #000000;*/
+  background-image:url('img/biergarten.jpg');
+  background-size: 100%;
 }
+
+.german {
+  font-family: AlteSchwabacher;
+}
+
+.german form {
+  font-size: 24px;
+  text-align: left;
+  color:#FFCC00;
+}
+
+.german h1 {
+  font-size: 80px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+.german h3 {
+  font-size: 48px;
+  text-align: center;
+  color:#FFCC00;
+}
+
 
 th {
   text-align: left;
