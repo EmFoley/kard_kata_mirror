@@ -27,6 +27,7 @@ get '/users/:id/stats' do
   @high_score = user.stats[:high_score]
   @last_played = user.stats[:last_played]
   @decks = user.decks
+  p @high_score
   erb :user_stats
 end
 

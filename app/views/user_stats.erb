@@ -1,6 +1,6 @@
 <div class = "container">
-  <h1>Statistics</h1>
-  <table cellpadding='10'>
+  <h1 class="german">Statistics</h1>
+  <table class="german" cellpadding='10'>
     <tr>
       <th>Deck Name</th>
       <th>Times Played</th>
@@ -11,10 +11,10 @@
       <tr>
         <td><%= deck.name %></td>
         <td><%= @times_played[deck.id] %></td>
-        <td><%= @high_score[deck.id][:correct] %></td>
+        <td><%= @high_score[deck.id] %></td>
         <td><%= @last_played[deck.id] %></td>
       </tr>
     <% end %>
   </table>
-  <a href="/">Back Home</a>
+  <a href="/" id="submit" class="back_home">Back Home</a>
 </div>

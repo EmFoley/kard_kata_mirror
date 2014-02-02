@@ -1,11 +1,60 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+@font-face {
+  font-family: AlteSchwabacher;
+  src: url('img/dieter-steffmann_alte-schwabacher/AlteSchwabacher.ttf');
+}
+@font-face {
+  font-family: FinFraktur;
+  src: url('img/intellecta-design_fin-fraktur/fine_fraktur_8.ttf');
 }
 
-th {
+body {
+  background-image:url('img/wood-fence-texture-03.jpg');
+}
+
+#biergarten {
+  background-image:url('img/biergarten.jpg');
+  background-size: 100%;
+}
+
+.container {
+  margin: 20px auto;
+  width: 800px;
+  height: 300px;
+  padding: 0px 20px 20px 20px;
+  border: 30px solid #B80000;
+  border-style:groove;
+  background-image:url('img/Why-Beer-Is-Good-For-You.jpg');
+  background-size: 100%;
+}
+
+.QandA {
+  font-size: 30px;
+}
+
+.german {
+  font-family: AlteSchwabacher;
+}
+
+.litegerman {
+  font-family: FinFraktur;
+}
+
+#start_game {
+  margin-top: 10px;
+}
+
+.stat_button {
+  margin-left: 30px;
+}
+
+#logout {
+  margin-top: 150px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+
+form {
+  font-size: 24px;
   text-align: left;
 }
 
@@ -74,3 +123,62 @@ color: blue;
 nav a:hover {
   background: rgba(76, 247, 67, 0.75);
 }
+
+.german h1 {
+  font-size: 80px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+.german h3 {
+  font-size: 48px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+h2 {
+  font-size: 40px;
+}
+
+
+th {
+  text-align: left;
+}
+
+#submit {
+  background: #B80000;
+  border: 3px solid #800000;
+  text-decoration: none;
+  color:#5A0619;
+  font-family: AlteSchwabacher;
+  font-size: 30px;
+}
+
+.beer_cat{
+  margin: 0 auto;
+  border: 5px solid #B80000;
+  border-style: groove;
+}
+
+.cat_dance p {
+  font-size: 80px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+.score {
+  color: #B80000;
+  font-size: 50px;
+}
+
+#definition {
+  font-size: 40px;
+}
+
+table {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+
+>>>>>>> origin/Styling

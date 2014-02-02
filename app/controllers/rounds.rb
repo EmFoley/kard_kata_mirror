@@ -25,6 +25,7 @@ post '/round' do
     outcome = 0
     session[:answer_message] = "Sorry, that was not correct :( \n The correct answer is: #{current_card.answer}."
   end
+
   guess = Guess.create!(round_id: session[:round_id], outcome: outcome, card_id: current_card.id)
   redirect '/round/result'
 end

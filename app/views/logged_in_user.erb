@@ -1,19 +1,18 @@
-<div class="container">
-  <form action="/round" method="get">
+<div class="container" id="biergarten">
+  <form id="start_game" action="/round" method="get">
     <select name ="deck_id">
       <% @decks.each do |deck| %>
         <option value= <%= deck.name %>><%= deck.name %></option>
       <% end %>
     </select>
-    <input type="submit" value="Start game">
-  </form>
-
-  <form action="/logout" method="post">
-    <input type="submit" value="Logout">
+    <input type="submit" value="Start game" id="submit">
   </form>
 
   <form action="/users/<%= session[:id] %>/decks" method="get">
     <input type="submit" value="View All Decks">
   </form>
-  <a href="/users/<%= @user_id %>/stats">See stats</a>
+  <form id="logout" action="/logout" method="post">
+    <input type="submit" value="Logout" id="submit">
+  </form>
+  <a href="/users/<%= @user_id %>/stats" id="submit" class="stat_button">See stats</a>
 </div>

@@ -1,4 +1,9 @@
 <div class="container">
-  <h2>You got <%= @user_score[:correct] %> questions correct and missed <%= @user_score[:incorrect] %>.</h2>
-  <a href="/" class="button">Return to Decks</a>
+  <h2 class="german">You got <span class="score"><%= @user_score[:correct] %></span> questions correct and missed <span class="score"><%= @user_score[:incorrect] %></span>.</h2>
+  <a href="/" class="button" id="submit">Return to Decks</a>
+</div>
+<div class="cat_dance">
+  <p class="german">Prost!</p>
+<div style="max-width: 500px;" id="_giphy_NzeQYvVLbZFE4" class="beer_cat"></div>
+<script>var _giphy = _giphy || []; _giphy.push({id: 'NzeQYvVLbZFE4',w: 240, h: 180});var g = document.createElement('script'); g.type = 'text/javascript'; g.async = true;g.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'giphy.com/static/js/widgets/embed.js';var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(g, s);</script>
 </div>

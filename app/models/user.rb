@@ -38,10 +38,12 @@ class User < ActiveRecord::Base
     result = {}
     self.decks.each do |deck|
       if deck.rounds.empty?
-        result[deck.id] = {correct: 0}
+        result[deck.id] = 0
       else
-        result[deck.id] = deck.rounds.map{ |round| round.score }.max
+        result[deck.id] = deck.rounds.map{ |round| round.score[:correct] }.max
       end
+      p "FLAG"
+      p deck.rounds.first.score
     end
     result
   end

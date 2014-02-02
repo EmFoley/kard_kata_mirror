@@ -1,7 +1,7 @@
 <div class="container">
-  <p>Question: <%= @current_card.question %></p>
+  <p class="german QandA">Definition: <span id="definition"><%= @current_card.question %></span></p>
   <form action="/round", method="post">
-    Answer: <input type="text" name="user_answer">
-    <input type="submit" value='Check Answer'>
+    <p class="german QandA">Term:</p> <input type="text" name="user_answer">
+    <input class="german" type="submit" value='Check Answer' id="submit">
   </form>
 </div>
