@@ -1,13 +1,14 @@
 require 'rake'
+
+begin
 require 'rspec/core/rake_task'
-
-# Rakefile
-APP_FILE  = 'app.rb'
-APP_CLASS = 'App'
-
-
-require 'sinatra/assetpack/rake'
-
+  desc "Run all examples"
+  RSpec::Core::RakeTask.new(:spec) do |t|
+    t.rspec_opts = %w[--color]
+    t.pattern = 'spec/*_spec.rb'
+  end
+rescue LoadError
+end
 
 require ::File.expand_path('../config/environment', __FILE__)
 
