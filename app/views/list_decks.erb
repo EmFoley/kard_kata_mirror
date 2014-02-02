@@ -1,4 +1,5 @@
 Here Are All Your Decks:
+<p>(You have <%= @decks.count %> decks)</p>
 <% @decks.each do |deck| %>
 <div class="deck">
   <%= deck.name %>

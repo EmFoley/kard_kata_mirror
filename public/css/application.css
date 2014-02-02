@@ -40,3 +40,11 @@ th {
 .update-deck-name, .view-deck-button {
   background: rgba(76, 247, 67, 0.75);
 }
+
+nav a {
+color: blue;
+}
+
+nav a:hover {
+  background: rgba(76, 247, 67, 0.75);
+}

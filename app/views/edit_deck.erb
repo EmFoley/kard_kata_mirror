@@ -1,3 +1,6 @@
+<nav>
+  <a href="/decks">&#9668; Go back to all your decks</a>
+</nav>
 Deck Name: <%= @deck.name %>
 <form class="update-deck-form" method="post" action="/decks/<%= @deck.id %>">
   <input type="hidden" name="_method" value="put">
