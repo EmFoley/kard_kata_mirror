@@ -1,21 +1,23 @@
-<nav>
+<nav class="german">
   <a href="/users/<%= session[:id] %>">&#9668; Go back to your dashboard</a>
 </nav>
-<form class="add-deck-form" method="post" action="/users/<%= session[:id] %>/decks">
-  <p>(You have <%= @decks.count %> decks)</p>
+<form class="add-deck-form german" method="post" action="/users/<%= session[:id] %>/decks">
+  <p>(You have <span class="score"><%= @decks.count %></span> decks)</p>
   <p>Add a New Deck:</p>
   <input type="text" name="name">
-  <input class="add-deck-button" type="submit" value="Create Deck!">
+  <input class="add-deck-button" type="submit" value="Create Deck!" id="submit">
 </form>
-Here Are All Your Decks:
+<div class="german">
+<p class="floating">Here Are All Your Decks:</p>
 <% @decks.sort {|a, b| a.name.downcase.slice(0) <=> b.name.downcase.slice(0)}.each do |deck| %>
 <div class="deck">
   <%= deck.name %>
-  <button class="view-deck-button" type="button"><a href="/users/<%= session[:id] %>/decks/<%= deck.id %>">View</a></button>
-  <button class="edit-deck-button"><a href="/users/<%= session[:id] %>/decks/<%= deck.id %>/edit">Edit</a></button>
+  <button class="view-deck-button" type="button" id="submit"><a href="/users/<%= session[:id] %>/decks/<%= deck.id %>">View</a></button>
+  <button class="edit-deck-button" id="submit"><a href="/users/<%= session[:id] %>/decks/<%= deck.id %>/edit">Edit</a></button>
   <form class="deck-delete-form" method="post" action="/users/<%= session[:id] %>/decks/<%= deck.id %>">
-    <input type="hidden" name="_method" value="delete">
-    <input class="delete-deck-button" type="submit" value="Delete">
+    <input type="hidden" name="_method"value="delete">
+    <input class="delete-deck-button" type="submit" value="Delete" id="submit">
   </form>
 </div>
 <% end %>
+</div>

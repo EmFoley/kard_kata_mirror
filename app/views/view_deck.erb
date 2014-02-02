@@ -1,10 +1,10 @@
-<nav>
+<nav class="german">
   <a href="/users/<%= session[:id] %>/decks">&#9668; Go back to all your decks</a>
 </nav>
-<p>Deck Name: <%= @deck.name %></p>
-<p> Num of Cards in Deck: <%= @cards.count %></p>
+<p class="floating german">Deck Name: <%= @deck.name %></p>
+<p class="floating german"> Num of Cards in Deck: <%= @cards.count %></p>
 <% @cards.each_with_index do |card, idx| %>
-  <div class="card">
+  <div class="card german">
     <p>Q<%= idx + 1 %>: <%= card.question %></p>
     </p>A:<%= card.answer %></p>
   </div>

@@ -3,12 +3,24 @@
   src: url('img/dieter-steffmann_alte-schwabacher/AlteSchwabacher.ttf');
 }
 @font-face {
+  font-family: HumboldtFraktur;
+  src:url('img/humboldtfraktur/HumboldtFraktur-Regular.ttf');
+}
+@font-face {
   font-family: FinFraktur;
   src: url('img/intellecta-design_fin-fraktur/fine_fraktur_8.ttf');
 }
 
 body {
   background-image:url('img/wood-fence-texture-03.jpg');
+}
+
+.wrapper {
+  margin: 20px 0 0 20px;
+}
+
+a {
+  text-decoration: none;
 }
 
 #biergarten {
@@ -32,56 +44,61 @@ body {
 }
 
 .german {
-  font-family: AlteSchwabacher;
+  font-family: HumboldtFraktur;
 }
 
 .litegerman {
   font-family: FinFraktur;
 }
 
-#start_game {
-  margin-top: 10px;
+#start_game, .stat_button, #logout, .view_all_decks {
+  float:left;
+  margin: 5px;
 }
-
-.stat_button {
-  margin-left: 30px;
-}
-
-#logout {
-  margin-top: 150px;
-  margin-left: 30px;
-  margin-bottom: 10px;
-}
-
 form {
   font-size: 24px;
   text-align: left;
 }
 
-/*Pertaining to CRUD related pages for Decks*/
 .card {
   border: 2px solid silver;
   margin: 10px;
+  width: 500px;
+  border: 10px solid #B80000;
+  border-style: groove;
+  background-image:url('img/light_tablecloth.jpg');
+  font-size: 30px;
+  text-align: center;
 }
 
 .create-card-form {
-  border: 2px solid silver;
+  border: 10px solid #B80000;
+  border-style: groove;
   margin: 10px;
   padding: 5px;
+  width: 800px;
+  height: 250px;
+  background-image: url('img/Why-Beer-Is-Good-For-You.jpg');
 }
 
 .deck {
   max-width: 600px;
-  border: 2px solid silver;
+  border: 5px solid #B80000;
+  border-style: groove;
   margin: 10px;
   overflow: auto;
+  font-size: 30px;
+  background-image:url('img/tablecloth.jpg');
 }
 
 .add-deck-form {
   max-width: 600px;
-  border: 2px solid silver;
+  border: 10px solid #B80000;
+  border-style: groove;
   margin: 10px;
   padding: 5px;
+  background-image: url('img/Why-Beer-Is-Good-For-You.jpg');
+  font-size: 40px;
 }
 
 .deck-delete-form, .deck-edit-form {
@@ -94,15 +111,9 @@ form {
 
 .edit-card-button, .edit-deck-button {
   background: rgba(248, 255, 59, 0.75);
+  margin-bottom: 10px;
 }
 
-/*.edit-card-button {
-  display: block;
-}
-
-.delete-card-button, .delete-card-form {
-  display: inline;
-}*/
 
 .delete-card-button, .delete-deck-button {
   background: rgba(227, 43, 43, 0.90);
@@ -112,16 +123,31 @@ form {
   background: rgba(76, 247, 67, 0.75);
 }
 
+.update-deck-name a, .view-deck-button a, .create-card-button a, .edit-deck-button a, .delete-deck-button input{
+  color:black;
+}
+
 .delete-deck-button, .view-deck-button, .edit-deck-button {
   float: right;
 }
 
+.question, .answer {
+  font-size: 35px;
+}
+
+
 nav a {
-color: blue;
+color: #FFCC00;
+font-size: 20px;
 }
 
 nav a:hover {
-  background: rgba(76, 247, 67, 0.75);
+  color: #FFFFFF;
+}
+
+.floating {
+  font-size: 50px;
+  color:#FFCC00;
 }
 
 .german h1 {
@@ -150,8 +176,8 @@ th {
   border: 3px solid #800000;
   text-decoration: none;
   color:#5A0619;
-  font-family: AlteSchwabacher;
-  font-size: 30px;
+  font-family: HumboldtFraktur;
+  font-size: 25px;
 }
 
 .beer_cat{
@@ -181,4 +207,3 @@ table {
 }
 
 
->>>>>>> origin/Styling
