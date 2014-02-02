@@ -9,7 +9,7 @@
   </form>
 
   <form action="/users/<%= session[:id] %>/decks" method="get">
-    <input type="submit" value="View All Decks">
+    <input type="submit" value="View All Decks" id="submit" class="view_all_decks">
   </form>
   <form id="logout" action="/logout" method="post">
     <input type="submit" value="Logout" id="submit">
