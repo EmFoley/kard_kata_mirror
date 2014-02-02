@@ -47,6 +47,14 @@ th {
   background: rgba(248, 255, 59, 0.75);
 }
 
+/*.edit-card-button {
+  display: block;
+}
+
+.delete-card-button, .delete-card-form {
+  display: inline;
+}*/
+
 .delete-card-button, .delete-deck-button {
   background: rgba(227, 43, 43, 0.90);
 }
