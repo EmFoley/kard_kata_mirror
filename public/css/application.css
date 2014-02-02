@@ -15,6 +15,12 @@ th {
   margin: 10px;
 }
 
+.create-card-form {
+  border: 2px solid silver;
+  margin: 10px;
+  padding: 5px;
+}
+
 .deck {
   max-width: 600px;
   border: 2px solid silver;
@@ -45,7 +51,7 @@ th {
   background: rgba(227, 43, 43, 0.90);
 }
 
-.update-deck-name, .view-deck-button {
+.update-deck-name, .view-deck-button, .create-card-button {
   background: rgba(76, 247, 67, 0.75);
 }
 
