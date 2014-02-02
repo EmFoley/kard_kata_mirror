@@ -10,6 +10,7 @@ get '/users/new' do
 end
 
 get '/users/:id' do
+  session[:game_started] = nil
   if session[:id] == params[:id].to_i
     @decks = Deck.where(user_id: session[:id])
     erb :logged_in_user
