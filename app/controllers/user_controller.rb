@@ -10,7 +10,7 @@ get '/users/new' do
 end
 
 get '/users/:id' do
-  session[:game_started] = nil
+  session[:game_started] = false
   if session[:id] == params[:id].to_i
     @user_id = session[:id]
     @decks = Deck.where(user_id: session[:id])
@@ -27,7 +27,6 @@ get '/users/:id/stats' do
   @high_score = user.stats[:high_score]
   @last_played = user.stats[:last_played]
   @decks = user.decks
-  p @high_score
   erb :user_stats
 end
 
