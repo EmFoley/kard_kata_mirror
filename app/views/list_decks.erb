@@ -5,7 +5,7 @@
   <input class="add-deck-button" type="submit" value="Create Deck!">
 </form>
 Here Are All Your Decks:
-<% @decks.each do |deck| %>
+<% @decks.sort {|a, b| a.name.downcase.slice(0) <=> b.name.downcase.slice(0)}.each do |deck| %>
 <div class="deck">
   <%= deck.name %>
   <button class="view-deck-button" type="button"><a href="/decks/<%= deck.id %>">View</a></button>
