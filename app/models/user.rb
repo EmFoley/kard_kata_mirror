@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  # attr_accessor: user_entered_password
   has_many :decks
   has_many :cards, through: :decks
 
@@ -8,8 +7,7 @@ class User < ActiveRecord::Base
 
   validates :username, uniqueness: true
   validates :username, presence: true
-  validates :password, presence: true
-  # validate :user_passwords_match
+  validates :password_hash, presence: true
 
   include BCrypt
 
