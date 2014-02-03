@@ -9,6 +9,8 @@
 </form>
 <div class="german">
 <p class="floating">Here Are All Your Decks:</p>
+
+<!-- why not @sorted_decks from the controller -->
 <% @decks.sort {|a, b| a.name.downcase.slice(0) <=> b.name.downcase.slice(0)}.each do |deck| %>
 <div class="deck">
   <%= deck.name %>
@@ -21,3 +23,4 @@
 </div>
 <% end %>
 </div>
+<!-- indentation helps other devs understand your code quickly.  DO IT RIGHT.  This stack of tags sucks.-->

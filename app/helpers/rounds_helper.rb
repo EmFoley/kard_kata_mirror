@@ -1,6 +1,7 @@
 helpers do
 
   def initialize_round
+    # Don't commit debugging output
     p params
     new_round = Round.create(deck_id: params[:deck_id], user_id: session[:id])
     session[:card_ids] = Card.where(deck_id: params[:deck_id]).map{ |card| card.id }

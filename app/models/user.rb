@@ -20,11 +20,27 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  # Tempting error here for new programmers.  Could you not create a
+  # StatsGenerator class which takes, as an argument a User?  The pattern
+  # you're doing, when writ large, leads to User classes in Rails projects that
+  # are TOO BIG.
+  #
+  # def stats_by_steven
+  #   StatsGenerator.new(self).stats
+  # end
+  #
+  # Now the responsibility for Stats calculation lives on a StatsGenerator
+  # class (SRP!).
+
   def stats
     {times_played: times_played_each_deck, last_played: last_played_each_deck, high_score: high_score_each_deck}
   end
 
+  # See above.....while this concerns a user it isn't a responsibility.
+  # Meditate upon the difference
+
   def times_played_each_deck
+    # each with object
     result = {}
     self.decks.each do |deck|
       result[deck.id] = deck.rounds.length

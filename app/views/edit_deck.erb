@@ -17,6 +17,10 @@
   <input class="create-card-button" type="submit" value="Add a new card" id="submit">
 </form>
 </div>
+
+<!-- Why not put the interior elements as a partial.  Why not wrap them all in a div to denote what's
+inside? -->
+
 <% @cards.each_with_index do |card, idx| %>
   <div class="card">
     <form class="edit-card-form german" method="post" action="/users/<%= session[:id] %>/decks/<%= @deck.id %>/cards/<%= card.id %>">
