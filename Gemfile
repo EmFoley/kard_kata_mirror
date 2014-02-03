@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-# ruby '1.9.3'
+ruby '1.9.3'
 
 # PostgreSQL driver
 gem 'pg'
@@ -17,10 +17,20 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+gem 'bcrypt-ruby'
+gem 'rspec'
+gem 'factory_girl'
+gem 'faker'
 
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'
+  gem 'rspec'
+end
+
+group :development do
+  gem 'pry'
+  gem 'rspec'
 end
 
 group :test, :development do

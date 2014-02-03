@@ -1,11 +1,10 @@
-<div class="container">
-  <form action="/login" method="post">
-    <p>Username</p><input type="text" name="username">
-    <p>Password</p><input type="text" name="password">
-    <input type="submit" value="Login!">
-    <p><%= @valid_pw %></p>
+<div class="container" id="biergarten">
+  <%= erb :'partials/user_credentials' %>
+  <form class="german"action="/users/new" method="get">
+    <input type="submit" value="Sign Up" id="submit">
   </form>
-  <form action="/users/new" method="get">
-    <input type="submit" value="Create User">
-  </form>
+</div>
+<div class="german">
+<h1>Willkommen!</h1>
+  <h3>Pour yourself some German vocabulary knowledge!</h3>
 </div>

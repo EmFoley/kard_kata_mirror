@@ -1,10 +1,209 @@
+@font-face {
+  font-family: AlteSchwabacher;
+  src: url('img/dieter-steffmann_alte-schwabacher/AlteSchwabacher.ttf');
+}
+@font-face {
+  font-family: HumboldtFraktur;
+  src:url('img/humboldtfraktur/HumboldtFraktur-Regular.ttf');
+}
+@font-face {
+  font-family: FinFraktur;
+  src: url('img/intellecta-design_fin-fraktur/fine_fraktur_8.ttf');
+}
+
+body {
+  background-image:url('img/wood-fence-texture-03.jpg');
+}
+
+.wrapper {
+  margin: 20px 0 0 20px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#biergarten {
+  background-image:url('img/biergarten.jpg');
+  background-size: 100%;
+}
+
 .container {
   margin: 20px auto;
-  width: 600px;
+  width: 800px;
+  height: 300px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+  border: 30px solid #B80000;
+  border-style:groove;
+  background-image:url('img/Why-Beer-Is-Good-For-You.jpg');
+  background-size: 100%;
 }
+
+.QandA {
+  font-size: 30px;
+}
+
+.german {
+  font-family: HumboldtFraktur;
+}
+
+.litegerman {
+  font-family: FinFraktur;
+}
+
+#start_game, .stat_button, #logout, .view_all_decks {
+  float:left;
+  margin: 5px;
+}
+form {
+  font-size: 24px;
+  text-align: left;
+}
+
+.card {
+  border: 2px solid silver;
+  margin: 10px;
+  width: 500px;
+  border: 10px solid #B80000;
+  border-style: groove;
+  background-image:url('img/light_tablecloth.jpg');
+  font-size: 30px;
+  text-align: center;
+}
+
+.create-card-form {
+  border: 10px solid #B80000;
+  border-style: groove;
+  margin: 10px;
+  padding: 5px;
+  width: 800px;
+  height: 250px;
+  background-image: url('img/Why-Beer-Is-Good-For-You.jpg');
+}
+
+.deck {
+  max-width: 600px;
+  border: 5px solid #B80000;
+  border-style: groove;
+  margin: 10px;
+  overflow: auto;
+  font-size: 30px;
+  background-image:url('img/tablecloth.jpg');
+}
+
+.add-deck-form {
+  max-width: 600px;
+  border: 10px solid #B80000;
+  border-style: groove;
+  margin: 10px;
+  padding: 5px;
+  background-image: url('img/Why-Beer-Is-Good-For-You.jpg');
+  font-size: 40px;
+}
+
+.deck-delete-form, .deck-edit-form {
+  display: inline;
+}
+
+.edit-card-form, .delete-card-form {
+  display: inline;
+}
+
+.edit-card-button, .edit-deck-button {
+  background: rgba(248, 255, 59, 0.75);
+  margin-bottom: 10px;
+}
+
+
+.delete-card-button, .delete-deck-button {
+  background: rgba(227, 43, 43, 0.90);
+}
+
+.update-deck-name, .view-deck-button, .create-card-button {
+  background: rgba(76, 247, 67, 0.75);
+}
+
+.update-deck-name a, .view-deck-button a, .create-card-button a, .edit-deck-button a, .delete-deck-button input{
+  color:black;
+}
+
+.delete-deck-button, .view-deck-button, .edit-deck-button {
+  float: right;
+}
+
+.question, .answer {
+  font-size: 35px;
+}
+
+
+nav a {
+color: #FFCC00;
+font-size: 20px;
+}
+
+nav a:hover {
+  color: #FFFFFF;
+}
+
+.floating {
+  font-size: 50px;
+  color:#FFCC00;
+}
+
+.german h1 {
+  font-size: 80px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+.german h3 {
+  font-size: 48px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+h2 {
+  font-size: 40px;
+}
+
 
 th {
   text-align: left;
 }
+
+#submit {
+  background: #B80000;
+  border: 3px solid #800000;
+  text-decoration: none;
+  color:#5A0619;
+  font-family: HumboldtFraktur;
+  font-size: 25px;
+}
+
+.beer_cat{
+  margin: 0 auto;
+  border: 5px solid #B80000;
+  border-style: groove;
+}
+
+.cat_dance p {
+  font-size: 80px;
+  text-align: center;
+  color:#FFCC00;
+}
+
+.score {
+  color: #B80000;
+  font-size: 50px;
+}
+
+#definition {
+  font-size: 40px;
+}
+
+table {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+
